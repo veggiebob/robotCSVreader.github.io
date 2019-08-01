@@ -5,9 +5,16 @@
         <link rel="icon" href="https://avatars2.githubusercontent.com/u/42460693?s=460&v=4">
     </head>
     <style>
-        td a img {
+        .github td a img {
             width: 200px;
             height: 100px;
+        }
+        .khan td a img {
+            border-radius: 10px;
+        }
+        td a img {
+            border-radius: 10px;
+            border: grey 2px dashed;
         }
         td,td a {
             text-decoration: none;
@@ -15,32 +22,49 @@
             text-align: center;
         }
         tr td:not(:empty) {
-            border: 1px solid black;
+            background-color:lightgrey;
             border-radius: 10px;
             padding: 5px;
         }
         tr {
             border-bottom: 1px solid #ddd;
         }
+        button {
+            border: none;
+            color:white;
+            background-color: darkgrey;
+            margin-right:5px;
+            padding: 3px;
+        }
+        button:hover {
+            cursor: pointer;
+            background-color: lightgrey;
+            color: black;
+            transition-duration: 0.5s;
+        }
     </style>
     <body>
         <h1>Home</h1>
-        <table>
+        <h2>Github projects</h2>
+        <table class="github">
             <tr>
                 <td>
                     <a href="csv-reader/index.html">
-                        <img src="thumbs/csv-reader.PNG">
+                        <img src="thumbs/csv-reader.PNG" target="blank">
                         <br>
                         CSV Reader
                     </a>
                 </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
             </tr>
         </table>
+        <br>
+        <h2>Recent Khanacademy Projects</h2>
+        <button type="button" id="ka-hot-sort">HOT</button>
+        <button type="button" id="ka-new-sort">NEW</button>
+        <br><br>
+        <table id="khan-loads" class="khan">
+            
+        </table>
     </body>
+    <script src="load-ka.js"></script>
 </html>
