@@ -175,7 +175,7 @@ Robot.prototype.getStats = function(t) {
     if(t===this.stats.time) { return }
     this.stats.time = t;
     let path = this.path.path;
-    for(let i = 0; i<path.length; i++) {
+    for(let i = 0; i<path.length-1; i++) {
         if(t>=path[i].time&&t<path[i+1].time) {
             let tt = (t-path[i].time)/(path[i+1].time-path[i].time);//interpolating value
             this.stats.x = path[i].x+(path[i+1].x-path[i].x)*tt;
