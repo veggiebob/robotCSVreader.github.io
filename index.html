@@ -27,7 +27,7 @@
             padding: 5px;
         }
         tr {
-            border-bottom: 1px solid #ddd;
+            border: 3px solid #0f0;
         }
         button {
             border: none;
@@ -42,6 +42,10 @@
             color: black;
             transition-duration: 0.5s;
         }
+        .loader {
+            width: 100px;
+            height: 100px;
+        }
     </style>
     <body>
         <h1>Home</h1>
@@ -50,7 +54,7 @@
             <tr>
                 <td>
                     <a href="csv-reader/index.html">
-                        <img src="thumbs/csv-reader.PNG" target="blank">
+                        <img src="thumbs/csv_reader_active.PNG" target="blank">
                         <br>
                         CSV Reader
                     </a>
@@ -58,13 +62,13 @@
             </tr>
         </table>
         <br>
-        <h2>Recent Khanacademy Projects</h2>
-        <button type="button" id="ka-hot-sort">HOT</button>
+        <h2>Khanacademy Projects</h2>
+        <button type="button" id="ka-hot-sort">TOP</button>
         <button type="button" id="ka-new-sort">NEW</button>
+        <a href="https://www.khanacademy.org/profile/dinopappy/projects">All Projects</a>
         <br><br>
-        <table id="khan-loads" class="khan">
-            
-        </table>
+        <img id="loading_symbol" src="https://ui-ex.com/images/transparent-background-loading.gif" class="loader">
+        <table id="khan-loads" class="khan"></table>
     </body>
     <script src="load-ka.js"></script>
 </html>
