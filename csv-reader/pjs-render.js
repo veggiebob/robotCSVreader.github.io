@@ -196,6 +196,9 @@ var drawField = function(processingInstance) {
                 mouseText.setColor(washColor(col))
             }
         }
+        function wordSuffix (word, number) {
+            return number===1?word:word+"s";
+        }
         var drawDropCollection = function(rob) {
             let col = rob.color;
             let drops = rob.dc.drops;
@@ -203,8 +206,9 @@ var drawField = function(processingInstance) {
             fill(col);
             noStroke();
             let moused = -1;
+            let selecteds = 0;
             for(let i = 0; i<drops.length; i++) {
-                if(rawdrops[i].x<=0&&rawdrops[i].y<=0&&rawdrops[i].time<=0) { continue; }
+                if(rawdrops[i].x<=0&&rawdrops[i].y<=0) { continue; }
                 if(Math.abs(time-drops[i].time)<500) {
                     let ds = dropSize*2;
                     rect(drops[i].x-ds/2, drops[i].y-ds/2, ds, ds, -dropSize)
@@ -213,11 +217,12 @@ var drawField = function(processingInstance) {
                 }
                 if(dist(mouseX, mouseY, drops[i].x, drops[i].y)<dropSize/2) {
                     moused = i;
+                    selecteds++;
                 }
             }
             if(moused>=0) {
                 mouseText.show();
-                mouseText.setText(`-Drop-\nx: ${clipNumber(rawdrops[moused].x, 2)}\ny: ${clipNumber(rawdrops[moused].y, 2)}\nt: ${rawdrops[moused].time}`)
+                mouseText.setText(`-${selecteds} ${wordSuffix("Drop", selecteds)}-\nx: ${clipNumber(rawdrops[moused].x, 2)}\ny: ${clipNumber(rawdrops[moused].y, 2)}\nt: ${rawdrops[moused].time}`)
                 mouseText.setColor(washColor(col))
             }
         }
