@@ -5,29 +5,57 @@
         <link rel="icon" href="https://avatars2.githubusercontent.com/u/42460693?s=460&v=4">
     </head>
     <style>
-        .github td a img {
+        .github img {
             width: 200px;
             height: 100px;
         }
-        .khan td a img {
-            border-radius: 10px;
+        a[href] img, img[href] {
+            border: 1px grey solid;
+            border-radius: 4px;
+            padding: 3px;
+            transition-duration: 0.5s;
         }
-        td a img {
-            border-radius: 10px;
-            border: grey 2px dashed;
+        a[href] img:hover, img[href]:hover {
+            box-shadow: grey 0px 2px 3px 3px;
+            opacity: 0.5;
+            transition-duration: 0.5s;
         }
         td,td a {
             text-decoration: none;
             font-weight: normal;
             text-align: center;
         }
-        tr td:not(:empty) {
+        tr td {
             background-color:lightgrey;
-            border-radius: 10px;
             padding: 5px;
+            border: 5px transparent solid;
         }
-        tr {
-            border: 3px solid #0f0;
+        table tbody:first-child td {
+            border-radius: 4px 4px 0px 0px;
+        }
+        table tbody:last-child td {
+            border-radius: 0px 0px 4px 4px;
+        }
+        table tbody:last-child:first-child td {
+            border-radius: 4px;
+        }
+        .shadertoy td {
+            background-color: rgb(220, 200, 200);
+        }
+        .github td {
+            background-color:rgb(220, 200, 220);
+        }
+        .khan td {
+            background-color:rgb(200, 220, 200);
+        }
+        .shadertoy img {
+            width: 160px;
+            height: 90px;
+            margin-right: 10px;
+        }
+        .shadertoy td {
+            text-align: left;
+            vertical-align: middle;
         }
         button {
             border: none;
@@ -53,18 +81,6 @@
             color: red;
             font-weight: bold;
         }
-        .shadertoy img {
-            width: 160px;
-            height: 90px;
-        }
-        a img:hover {
-            opacity: 0.5;
-            transition-duration: 0.5s;
-        }
-        .shadertoy td {
-            text-align: left;
-            vertical-align: middle;
-        }
     </style>
     <body>
         <h1>Home</h1>
@@ -77,6 +93,9 @@
                         <br>
                         CSV Reader
                     </a>
+                </td>
+                <td>
+                    <a href=""
                 </td>
             </tr>
         </table>
