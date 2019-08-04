@@ -43,8 +43,27 @@
             transition-duration: 0.5s;
         }
         .loader {
-            width: 100px;
-            height: 100px;
+            width: 30px;
+            height: 30px;
+        }
+        .views {
+            color: darkblue;
+        }
+        .likes {
+            color: red;
+            font-weight: bold;
+        }
+        .shadertoy img {
+            width: 160px;
+            height: 90px;
+        }
+        a img:hover {
+            opacity: 0.5;
+            transition-duration: 0.5s;
+        }
+        .shadertoy td {
+            text-align: left;
+            vertical-align: middle;
         }
     </style>
     <body>
@@ -67,8 +86,35 @@
         <button type="button" id="ka-new-sort">NEW</button>
         <a href="https://www.khanacademy.org/profile/dinopappy/projects">All Projects</a>
         <br><br>
-        <img id="loading_symbol" src="https://ui-ex.com/images/transparent-background-loading.gif" class="loader">
+        <img id="loading_symbol" src="https://ui-ex.com/images/transparent-background-loading.gif" class="loader" title="Scanning for internal project data for author and quality information">
         <table id="khan-loads" class="khan"></table>
+        <br>
+        <h2>Shadertoy Projects</h2>
+        <table id="shadertoy-loads" class="shadertoy"></table>
     </body>
+    <script>
+        function getAPIAsync (url) {
+            return new Promise((resolve, reject) => {
+                var com = new XMLHttpRequest();
+                com.open("GET", url, true)
+                com.send()
+                com.onload = () => {
+                    try {
+                        resolve(JSON.parse(com.responseText))
+                    } catch (e) {
+                        resolve(com.responseText)
+                    }
+                }
+                com.onerror = () => {
+                    reject("error")
+                }
+            })
+        }
+        
+        function clipString (str, len) {
+            return str.length>len?str.substring(0, len)+"...":str;
+        }
+    </script>
     <script src="load-ka.js"></script>
+    <script src="load-shadertoy.js"></script>
 </html>

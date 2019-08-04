@@ -5,43 +5,32 @@ const root = "https://www.khanacademy.org"
 var ka_table = document.getElementById("khan-loads")
 var loading_symbol = '<img src="https://ui-ex.com/images/transparent-background-loading.gif" class="loader">';
 const MAX_REQUESTS = 5;
-function getAPIAsync (url) {
-    return new Promise((resolve, reject) => {
-        var com = new XMLHttpRequest();
-        com.open("GET", url, true)
-        com.send()
-        com.onload = () => {
-            try {
-                resolve(JSON.parse(com.responseText))
-            } catch (e) {
-                resolve(com.responseText)
-            }
-        }
-        com.onerror = () => {
-            reject("error")
-        }
-    })
-}
-function clipString (str, len) {
-    return str.length>len?str.substring(0, len)+"...":str;
-}
 function validateProgram (prgm) {
-    return true;
-    // let txt = prgm.revision.code.toLowerCase();
-    // let hasAuthor = /@author/.test(txt)
-    // let correctAuthor = /@author:[\w\s]*jiggs[\w\s]*/.test(txt)
-    // let quality = txt.match(/@quality:\s*([\W\w]+)/g);
-    //     //0 = <50% done
-    //     //1 = >50% done or something not-user friendly but done
-    //     //2 = 95-100% done and user-friendly
-    // if(!hasAuthor) {
-    //     correctAuthor = true;
+    //return true;
+    let txt = prgm.revision.code.toLowerCase();
+    let hasAuthor = /@author:.+/.test(txt)
+    let authors, correctAuthor;
+    if(hasAuthor) {
+        authors = txt.match(/@author:([\s*\w+\,]+)/)[1].split(",")
+        authors.forEach(e=>{e=e.trim()})
+        correctAuthor = authors.includes("jiggs")
+    }
+    let quality = txt.match(/@quality:\s*(\d)/);
+        //0 = <50% done
+        //1 = >50% done or something not-user friendly but done
+        //2 = 95-100% done and user-friendly
+    if(!hasAuthor) {
+        correctAuthor = true;
+    }
+    // else {
+    //     console.log("authors: " + authors.join(", "))
     // }
-    // if(quality!==null) {
-    //     return correctAuthor&&+quality[1]>0
-    // } else {
-    //     return correctAuthor;
-    // }
+    if(quality!==null) {
+        //console.log("quality: " + quality[1])
+        return correctAuthor&&+quality[1]>0
+    } else {
+        return correctAuthor;
+    }
 }
 async function getGoodScratchpadsAsync (sortType, scratchs, page) {
     if(page===undefined) {
@@ -55,13 +44,11 @@ async function getGoodScratchpadsAsync (sortType, scratchs, page) {
     }
     var dat = (await getAPIAsync(
         root+"/api/internal/user/scratchpads?username=dinopappy"+
-        "&limit="+num_request+
+        "&limit=40"+
         "&sort="+sortType+
         "&page="+page
     ))
-    console.log(dat)
     dat = dat.scratchpads;
-    console.log(dat);
     if(!dat) {
         return scratchs;
     }
@@ -72,17 +59,17 @@ async function getGoodScratchpadsAsync (sortType, scratchs, page) {
         if(scratchs.length>=num_request) {
             break;
         }
-        console.log(program.id)
+        //console.log(program.id)
         if(validateProgram(program)) {
             scratchs.push(scratch)
         } else {
             missing ++;
-            console.log("scratchpad " + scratch.title + " is not a good one")
+            //console.log("scratchpad " + scratch.title + " is not a good one\n"+scratch.url)
         }
     }
     if(missing>0&&scratchs.length<num_request) {
         console.log(missing + " missing")
-        scratchs = scratchs.concat(await getGoodScratchpads(sortType, scratchs, page+1))
+        scratchs = scratchs.concat(await getGoodScratchpadsAsync(sortType, scratchs, page+1))
     }
     return scratchs;
 }
