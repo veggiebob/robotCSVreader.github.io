@@ -7,11 +7,12 @@ var loading_symbol = '<img src="https://ui-ex.com/images/transparent-background-
 const MAX_REQUESTS = 5;
 function validateProgram (prgm) {
     //return true;
+    let authorCheck = /@author:\s*([\w\,]+)/;
     let txt = prgm.revision.code.toLowerCase();
-    let hasAuthor = /@author:.+/.test(txt)
+    let hasAuthor = authorCheck.test(txt)
     let authors, correctAuthor;
     if(hasAuthor) {
-        authors = txt.match(/@author:([\s*\w+\,]+)/)[1].split(",")
+        authors = txt.match(authorCheck);
         authors.forEach(e=>{e=e.trim()})
         correctAuthor = authors.includes("jiggs")
     }
@@ -22,12 +23,8 @@ function validateProgram (prgm) {
     if(!hasAuthor) {
         correctAuthor = true;
     }
-    // else {
-    //     console.log("authors: " + authors.join(", "))
-    // }
     if(quality!==null) {
-        //console.log("quality: " + quality[1])
-        return correctAuthor&&+quality[1]>0
+        return correctAuthor&&+quality[1]>1
     } else {
         return correctAuthor;
     }

@@ -1,0 +1,110 @@
+.github img {
+    width: 400px;
+    height: 200px;
+}
+.github td {
+    background-color: transparent;
+}
+a[href] img, img[href] {
+    border: 1px grey solid;
+    padding: 3px;
+    transition-duration: 0.5s;
+}
+a[href] img:hover, img[href]:hover {
+    box-shadow: grey 0px 2px 3px 3px;
+    opacity: 0.5;
+    transition-duration: 0.5s;
+}
+td a {
+    text-decoration: none;
+    font-weight: normal;
+    text-align: center;
+    color:white;
+}
+td {
+    padding: 5px;
+    border: 5px transparent solid;
+    text-align: center;
+}
+table {
+    width:100%;
+}
+/*
+table tbody:first-child td {
+    border-radius: 4px 4px 0px 0px;
+}
+table tbody:last-child td {
+    border-radius: 0px 0px 4px 4px;
+}
+table tbody:last-child:first-child td {
+    border-radius: 4px;
+}
+*/
+/*
+.shadertoy td {
+    background-color: rgb(70, 50, 50);
+}
+.github td {
+    background-color:rgb(70, 50, 70);
+}
+.khan td {
+    background-color:rgb(50, 70, 50);
+}
+*/
+td {
+    background-color: rgb(70, 70, 70);
+}
+.shadertoy img {
+    width: 320px;
+    height: 180px;
+    margin-right: 10px;
+}
+.shadertoy td {
+    text-align: left;
+    vertical-align: middle;
+}
+button {
+    border: none;
+    color:white;
+    background-color: darkgrey;
+    margin-right:5px;
+    padding: 3px;
+}
+button:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+    color: black;
+    transition-duration: 0.5s;
+}
+.shadertoy span[title] {
+    color: grey;
+}
+.loader {
+    width: 30px;
+    height: 30px;
+}
+.views {
+    color: lightblue;
+}
+.likes {
+    color: red;
+    font-weight: bold;
+}
+body {
+    font-family: sans-serif;
+    background-color: black;
+    color: grey;
+}
+#head-banner {
+    background-color: rgb(20, 0, 0);
+    width:100%;
+    margin:0%;
+}
+h2,h3,h4,h5,h6 {
+    border-bottom: lightgrey solid 1px;
+    width:50%;
+}
+h1 {
+    border-bottom: solid lightgrey 3px;
+    width:100%;
+}
