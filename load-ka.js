@@ -82,7 +82,7 @@ async function loadScratchpads (sortType) {
                 break out;
             }
             let pad = dat[index]
-            row_string += '<td><a href="'+pad.url+'"><img target="_blank" src="'+root+pad.thumb+'"><br>'+clipString(pad.title, 25)+'</a></td>';
+            row_string += '<td><a class="highlighters" href="'+pad.url+'"><img target="_blank" src="'+root+pad.thumb+'"><br>'+clipString(pad.title, 25)+'</a></td>';
             index++;
         }
         ka_table.innerHTML += "<tr>" + row_string + "</tr>";
@@ -91,6 +91,7 @@ async function loadScratchpads (sortType) {
 }
 async function loadPrograms (sortType) {
     document.getElementById("loading_symbol").style.display = "initial";
+    ka_table.innerHTML = "";
     setTimeout(()=>{loadScratchpads(sortType)}, 2000)
 }
 loadPrograms(1);

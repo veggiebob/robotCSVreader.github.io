@@ -24,10 +24,10 @@ async function loadShaderProjects () {
         console.log(shader)
         console.log(shaderThumb)
         shader = shader.Shader;
-        let shaderHTML = `<a href="https://www.shadertoy.com/view/${pkey}">`+
-            `<img src="${shaderThumb}">${shader.info.name}</a>`+
-            `: <span title="${shader.info.description}">${clipString(shader.info.description, 50)}</span>`+
-            ` &bull; <span class="views">${shader.info.viewed}</span> &bull; <span class="likes">${shader.info.likes}</span>`
+        let shaderHTML = `<a href="https://www.shadertoy.com/view/${pkey}" class="highlighters">`+
+            `<img src="${shaderThumb}"><br>${shader.info.name}</a>`+
+            `<span style="font-size:50px;color:white;margin-right:5px;">|</span> <span title="${shader.info.description}" style="margin-right:10px">${clipString(shader.info.description.replace(/[\n\r]/g, "<br>"), 200)}</span>`+
+            `<span class="views">${shader.info.viewed}</span> &bull; <span class="likes">${shader.info.likes}</span>`
         shaderTable.innerHTML += "<td>"+shaderHTML+"</td>"
     }
 }
