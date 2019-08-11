@@ -8,12 +8,14 @@
 a[href] img, img[href] {
     border: 1px grey solid;
     padding: 3px;
+    opacity:0.7;
     transition-duration: 0.5s;
 }
 a[href] img:hover, img[href]:hover {
-    box-shadow: white 0px 0px 3px 3px;
-    opacity: 0.5;
+    box-shadow: grey 0px 0px 2px 2px;
+    opacity: 1;
     transition-duration: 0.5s;
+    transform: scale(1.05);
 }
 a {
     text-decoration: none;
@@ -47,7 +49,6 @@ td {
 .shadertoy span[title] {
     color: grey;
 }
-/*button,#khan-projects-link,.khan a {*/
 .highlighters,.github a {
     border: none;
     color:grey;
@@ -57,10 +58,11 @@ td {
     transition-duration: 0.5s;
 }
 .highlighters:hover,.github a:hover {
-/*button:hover,#khan-projects-link:hover,.khan a:hover {*/
-    cursor: pointer;
     color: white;
     transition-duration: 0.5s;
+}
+button:hover {
+    cursor:pointer;
 }
 .loader {
     width: 100px;
@@ -70,9 +72,14 @@ td {
 .views {
     color: lightblue;
 }
+.views:hover {
+    transform:rotateY(180deg);
+    transition-duration:3s;
+}
 .likes {
     color: red;
     font-weight: bold;
+    margin-right: 5px;
 }
 body {
     font-family: sans-serif;
