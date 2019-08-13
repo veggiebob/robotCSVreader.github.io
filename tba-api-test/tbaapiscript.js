@@ -111,12 +111,14 @@ document.getElementById("update").onclick = function() {
                 output = displayVar(output);
             } catch (e) {}
             if(output!==null) {
-                var catch_url = /((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*/;
-                var mm = output.match(catch_url);
-                if(mm!==null) {
-                    output = "<a style=\"color:lightGray\" href=\""+mm[0]+"\" target=\"blank\">"+output+"</a>"
-                    console.log("found website");
-                }
+                try {
+                    var catch_url = /((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*/;
+                    var mm = output.match(catch_url);
+                    if(mm!==null) {
+                        output = "<a style=\"color:lightGray\" href=\""+mm[0]+"\" target=\"blank\">"+output+"</a>"
+                        console.log("found website");
+                    }
+                } catch (e) {}
             }
             dispStr += "<span class=\"data-key\">" + i + "</span>: <span class=\"data-value\">" + output + "</span><br>";
         }
