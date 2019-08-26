@@ -2,33 +2,36 @@
     <head>
         <title>Veggiebob</title>
         <!-- my profile pic -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="https://avatars2.githubusercontent.com/u/42460693?s=460&v=4">
         <link href="main.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div id="head-banner">
-            <h1>Veggiebob yay</h1>
+            <a id="github-link" href="https://github.com/veggiebob"><h1>Veggiebob's Stuff</h1></a>
         </div>
         <h2>Github projects</h2>
         <a href="https://www.github.com/veggiebob" class="highlighters">Github Profile</a>
-        <table class="github">
-            <tr>
-                <td>
-                    <a href="csv-reader/csv-reader.html">
-                        <img src="thumbs/csv_reader_active.PNG">
-                        <br>
-                        CSV Reader
-                    </a>
-                </td>
-                <td>
-                    <a href="tba-api-test/tbaapitest.html">
-                        <img src="thumbs/tba_api_test.PNG">
-                        <br>
-                        TBA API Testing
-                    </a>
-                </td>
-            </tr>
-        </table>
+        <div style="overflow-x:auto;">
+            <table class="github">
+                <tr>
+                    <td>
+                        <a href="csv-reader/csv-reader.html">
+                            <img src="thumbs/csv_reader_active.PNG">
+                            <br>
+                            CSV Reader
+                        </a>
+                    </td>
+                    <td>
+                        <a href="tba-api-test/tbaapitest.html">
+                            <img src="thumbs/tba_api_test.PNG">
+                            <br>
+                            TBA API Testing
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <br>
         <h2>Khanacademy Projects</h2>
         <button class="highlighters" type="button" id="ka-hot-sort">TOP</button>
@@ -36,13 +39,21 @@
         <a href="https://www.khanacademy.org/profile/dinopappy/projects" id="khan-projects-link" class="highlighters">All Projects</a>
         <br><br>
         <img id="loading_symbol" src="https://media1.tenor.com/images/9620a4caec3f33878244c8a7afc1f586/tenor.gif?itemid=7380710" class="loader" title="Scanning for internal project data for author and quality information">
-        <table id="khan-loads" class="khan highlighters"></table>
+        <div style="overflow-x:auto;">
+            <table id="khan-loads" class="khan highlighters"></table>
+        </div>
         <br>
         <h2>Shadertoy Projects</h2>
         <a class="highlighters" href="https://www.shadertoy.com/user/Veggiebob/sort=newest">All Projects</a>
-        <table id="shadertoy-loads" class="shadertoy"></table>
+        <div style="overflow-x:auto;">
+            <table id="shadertoy-loads" class="shadertoy"></table>
+        </div>
     </body>
     <script>
+        document.querySelectorAll("a,img[href]").forEach(e=>{
+            e.target = "\_blank";
+        })
+
         function getAPIAsync (url) {
             return new Promise((resolve, reject) => {
                 var com = new XMLHttpRequest();

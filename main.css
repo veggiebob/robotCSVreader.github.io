@@ -1,3 +1,8 @@
+#github-link {
+    color: lightgrey;
+    text-decoration:none;
+    font-weight:normal;
+}
 .github img {
     width: 400px;
     height: 200px;
@@ -8,7 +13,7 @@
 a[href] img, img[href] {
     border: 1px grey solid;
     padding: 3px;
-    opacity:0.7;
+    opacity:0.8;
     transition-duration: 0.5s;
 }
 a[href] img:hover, img[href]:hover {
@@ -71,10 +76,6 @@ button:hover {
 }
 .views {
     color: lightblue;
-}
-.views:hover {
-    transform:rotateY(180deg);
-    transition-duration:3s;
 }
 .likes {
     color: red;
