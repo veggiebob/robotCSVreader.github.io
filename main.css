@@ -13,7 +13,7 @@
 a[href] img, img[href] {
     border: 1px grey solid;
     padding: 3px;
-    opacity:0.8;
+    opacity:0.7;
     transition-duration: 0.5s;
 }
 a[href] img:hover, img[href]:hover {
@@ -99,4 +99,13 @@ h2,h3,h4,h5,h6 {
 h1 {
     border-bottom: solid lightgrey 3px;
     width:100%;
+}
+@media only screen and (max-width:800px) {
+    a[href] img, img[href] {
+        opacity: 1;
+    }
+    h1,h2,h3,h4,h5,h6 {
+        border-bottom: solid lightgrey 2px;
+        width:100%;
+    }
 }
