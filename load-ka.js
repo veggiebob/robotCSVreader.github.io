@@ -1,4 +1,4 @@
-var columns = 5;
+var columns = 3;
 var load_rows = 2;
 var num_request = columns*load_rows;
 const root = "https://www.khanacademy.org"
@@ -82,10 +82,13 @@ async function loadScratchpads (sortType) {
                 break out;
             }
             let pad = dat[index]
+            // row_string += "<tr>";
             row_string += '<td><a class="highlighters" href="'+pad.url+'"><img target="_blank" src="'+root+pad.thumb+'"><br>'+clipString(pad.title, 25)+'</a></td>';
+            // row_string += "</tr>";
             index++;
         }
         ka_table.innerHTML += "<tr>" + row_string + "</tr>";
+        // ka_table.innerHTML += row_string;
     }
     document.getElementById("loading_symbol").style.display = "none";
 }
