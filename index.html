@@ -7,11 +7,16 @@
         <link href="main.css" rel="stylesheet" type="text/css">
     </head>
     <body>
+        <a id="github-link" href="https://github.com/veggiebob" id="profile-link">
+            <img src="https://avatars2.githubusercontent.com/u/42460693?s=50&v=4" id="pfp">
+        </a>
         <div id="head-banner">
-            <a id="github-link" href="https://github.com/veggiebob"><h1>Veggiebob's Stuff</h1></a>
+            <h1 id="title-header">
+                <a id="github-link" href="https://github.com/veggiebob">
+                    Veggiebob's Projects
+                </a>
+            </h1>
         </div>
-        <h2>Github projects</h2>
-        <a href="https://www.github.com/veggiebob" class="highlighters">Github Profile</a>
         <div style="overflow-x:auto;">
             <table class="github">
                 <tr>
@@ -29,6 +34,8 @@
                             TBA API Testing
                         </a>
                     </td>
+                </tr>
+                <tr>
                     <td>
                         <a href="gamepad_connect/gamepad_connect.html">
                             <img src="thumbs/controllers_thumb.PNG">
@@ -36,7 +43,13 @@
                             Controller Joystick Test
                         </a>
                     </td>
-
+                    <td>
+                        <a href="fingerspelling-practice/fingerspelling.html">
+                            <img src="fingerspelling-practice/fingerspelling_practice.PNG">
+                            <br>
+                            Fingerspelling Practice
+                        </a>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -52,10 +65,10 @@
         </div>
         <br>
         <h2>Shadertoy Projects</h2>
-        <a class="highlighters" href="https://www.shadertoy.com/user/Veggiebob/sort=newest">All Projects</a>
         <div style="overflow-x:auto;">
             <table id="shadertoy-loads" class="shadertoy"></table>
         </div>
+        <a class="highlighters" href="https://www.shadertoy.com/user/Veggiebob/sort=newest">See all projects</a>
     </body>
     <script>
         document.querySelectorAll("a,img[href]").forEach(e=>{

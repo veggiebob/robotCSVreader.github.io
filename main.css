@@ -1,7 +1,26 @@
+#title-header {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+#head-banner {
+    background-color: rgb(20, 0, 0);
+    width:100%;
+    margin:0%;
+}
+#pfp {
+    right: 15px;
+    position: fixed;
+    object-fit: cover;
+    border-radius: 50%;
+    /* width: 50px;
+    height: 50px; */
+}
 #github-link {
     color: lightgrey;
     text-decoration:none;
-    font-weight:normal;
+    font-weight:bold;
+    font-family: sans-serif;
 }
 .github img {
     width: 400px;
@@ -34,6 +53,9 @@ td {
 td:not(:last-child) {
     border-right: solid orange 1px;
 }
+/* td:not(:first-child) {
+    border-left: solid orange 1px;
+} */
 table {
     width:100%;
 }
@@ -86,11 +108,6 @@ body {
     font-family: sans-serif;
     background-color: black;
     color: grey;
-}
-#head-banner {
-    background-color: rgb(20, 0, 0);
-    width:100%;
-    margin:0%;
 }
 h2,h3,h4,h5,h6 {
     border-bottom: lightgrey solid 1px;
