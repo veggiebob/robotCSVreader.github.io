@@ -17,33 +17,11 @@
     /* width: 50px;
     height: 50px; */
 }
-#description-bar {
-    position: fixed;
-    top: 3px;
-    left: 6px;
-    padding: 5px;
-    background-color: black;
-    box-shadow: 3px 3px 4px rgb(50, 50, 50);
-    /* border-left: solid rgb(50, 50, 50) 2px;
-    border-top:  solid rgb(50, 50, 50) 2px; */
-    /* border-radius: 2px 2px 0px 0px; */
-}
-#description-content {
-    color: white;
-    font-style: italic;
-}
 #github-link {
     color: lightgrey;
     text-decoration:none;
     font-weight:bold;
     font-family: sans-serif;
-}
-.github img {
-    width: 400px;
-    height: 200px;
-}
-.github td {
-    background-color: transparent;
 }
 a[href] img, img[href] {
     border: 1px grey solid;

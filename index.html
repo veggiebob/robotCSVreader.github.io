@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>Veggiebob</title>
+        <!-- my profile pic -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="https://avatars2.githubusercontent.com/u/42460693?s=460&v=4">
+        <link href="main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <!-- fixed elements -->
+        <a id="github-link" href="https://github.com/veggiebob" id="profile-link">
+            <img src="https://avatars2.githubusercontent.com/u/42460693?s=50&v=4" id="pfp">
+        </a>
+        <!-- title -->
+        <div id="head-banner">
+            <h1 id="title-header">
+                <a id="github-link" href="https://github.com/veggiebob">
+                    Veggiebob's Projects
+                </a>
+            </h1>
+        </div>
+        <h2>Shadertoy Projects</h2>
+        <div style="overflow-x:auto;">
+            <table id="shadertoy-loads" class="shadertoy"></table>
+        </div>
+        <a class="highlighters" href="https://www.shadertoy.com/user/Veggiebob/sort=newest">See all projects</a>
+    </body>
+    <script>
+        const description = document.getElementById("description-content");
+        function hideDescriptionBar () {
+            description.style.display = "none";
+            // description.style.transform = "translate(0%, 100%);";
+        }
+        function showDescriptionBar(content) {
+            description.style.display = "inline";
+            // description.style.transform = "translate(0%, 0%);";
+            description.innerText = content;
+        }
+        for (var e of document.querySelectorAll(".github a[description]")) {
+            e.addEventListener('mouseover', function(event) {
+                var element = event.target.parentElement;
+                // console.log(element);
+                showDescriptionBar(element.attributes.getNamedItem("description").value);
+            })
+            e.addEventListener('mouseout', hideDescriptionBar);
+        }
+        document.querySelectorAll("a,img[href]").forEach(e=>{
+            e.target = "\_blank";
+        })
+
+        function getAPIAsync (url) {
+            return new Promise((resolve, reject) => {
+                var com = new XMLHttpRequest();
+                com.open("GET", url, true)
+                com.send()
+                com.onload = () => {
+                    try {
+                        resolve(JSON.parse(com.responseText))
+                    } catch (e) {
+                        resolve(com.responseText)
+                    }
+                }
+                com.onerror = () => {
+                    reject("error")
+                }
+            })
+        }
+        
+        function clipString (str, len) {
+            return str.length>len?str.substring(0, len)+"...":str;
+        }
+    </script>
+    <script src="load-shadertoy.js"></script>
+</html>
