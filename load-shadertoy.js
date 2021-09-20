@@ -10,16 +10,16 @@
     ]
 }
 */
-let SAK = "NtHKMN";//shadertoy app key
+let SHADERTOY_APP_KEY = "NtHKMN";//shadertoy app key
 async function loadShaderProjects () {
     let shaderTable = document.getElementById("shadertoy-loads")
-    let data = await getAPIAsync("https://www.shadertoy.com/api/v1/shaders/query/veggiebob?sort=newest&key="+SAK)
+    let data = await getAPIAsync("https://www.shadertoy.com/api/v1/shaders/query/veggiebob?sort=newest&key="+SHADERTOY_APP_KEY)
     data = data.Results;
     if(data.length>10) {
         data = data.slice(0, 10);
     }
     for(let pkey of data) {
-        let shader = await getAPIAsync("https://www.shadertoy.com/api/v1/shaders/"+pkey+"?key="+SAK)
+        let shader = await getAPIAsync("https://www.shadertoy.com/api/v1/shaders/"+pkey+"?key="+SHADERTOY_APP_KEY)
         let shaderThumb = "https://www.shadertoy.com/media/shaders/"+pkey+".jpg"
         console.log(shader)
         console.log(shaderThumb)
