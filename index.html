@@ -26,24 +26,6 @@
         <a class="highlighters" href="https://www.shadertoy.com/user/Veggiebob/sort=newest">See all projects</a>
     </body>
     <script>
-        const description = document.getElementById("description-content");
-        function hideDescriptionBar () {
-            description.style.display = "none";
-            // description.style.transform = "translate(0%, 100%);";
-        }
-        function showDescriptionBar(content) {
-            description.style.display = "inline";
-            // description.style.transform = "translate(0%, 0%);";
-            description.innerText = content;
-        }
-        for (var e of document.querySelectorAll(".github a[description]")) {
-            e.addEventListener('mouseover', function(event) {
-                var element = event.target.parentElement;
-                // console.log(element);
-                showDescriptionBar(element.attributes.getNamedItem("description").value);
-            })
-            e.addEventListener('mouseout', hideDescriptionBar);
-        }
         document.querySelectorAll("a,img[href]").forEach(e=>{
             e.target = "\_blank";
         })
